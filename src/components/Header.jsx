@@ -1,4 +1,4 @@
-import sparkyLogo from 'todo-app\src\assets\Sparky.png'
+import sparkyLogo from '../assets/sparky.png'
 
 function Header({ taskCount, currentDate }) {
   return (
