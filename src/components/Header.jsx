@@ -1,4 +1,4 @@
-import sparkyLogo from '../assets/sparky.png';
+import sparkyLogo from '../assets/Sparky.png';
 
 function Header({ taskCount, currentDate }) {
   return (
