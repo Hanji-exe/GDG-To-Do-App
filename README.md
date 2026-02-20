@@ -7,7 +7,7 @@ Welcome, Cadet! You've just learned the fundamentals of React and Tailwind CSS. 
 
 ## Your Mission
 
-The **Sparky Todo App** works — but it's missing some features. Your task is to **extend it by adding 3 to 5 NEW FEATURES** using everything you learned today:
+The **Sparky Todo App** works — but it's missing some features. Your task is to **extend it by minum of 2 NEW FEATURES** using everything you learned today:
 
 - **React** — Components, Props, `useState`, `useEffect`
 - **Tailwind CSS** — Utility classes, Google color theme
