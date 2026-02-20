@@ -7,16 +7,11 @@ function App() {
   const [todos, setTodos] = useState([])
 
   const addTodo = (text) => {
-    const newTodo = {
-      id: Date.now(),
-      text: text,
-      completed: false
-    }
-    setTodos([...todos, newTodo])
+    setTodos([...todos, { id: Date.now(), text, completed: false }])
   }
 
   const toggleComplete = (id) => {
-    setTodos(todos.map(todo => 
+    setTodos(todos.map(todo =>
       todo.id === id ? { ...todo, completed: !todo.completed } : todo
     ))
   }
@@ -26,49 +21,30 @@ function App() {
   }
 
   const getCurrentDate = () => {
-    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-    
+    const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
+    const months = ['January','February','March','April','May','June','July','August','September','October','November','December']
     const now = new Date()
-    const dayName = days[now.getDay()]
-    const day = now.getDate()
-    const month = months[now.getMonth()]
-    
     const getOrdinal = (n) => {
-      const s = ['th', 'st', 'nd', 'rd']
-      const v = n % 100
+      const s = ['th','st','nd','rd'], v = n % 100
       return n + (s[(v - 20) % 10] || s[v] || s[0])
     }
-    
-    return `${dayName}, ${getOrdinal(day)} ${month}`
+    return `${days[now.getDay()]}, ${getOrdinal(now.getDate())} ${months[now.getMonth()]}`
   }
 
   return (
-    <div className="app-container">
-      <Header 
-        taskCount={todos.length} 
-        currentDate={getCurrentDate()} 
-      />
-      
-      <div className="main-card">
-        <TodoList 
-          todos={todos} 
-          toggleComplete={toggleComplete}
-          deleteTodo={deleteTodo}
-        />
-        
+    <div className="max-w-[500px] mx-auto py-8 px-4 min-h-screen" style={{ background: '#18191b' }}>
+      <Header taskCount={todos.length} currentDate={getCurrentDate()} />
+
+      <div className="bg-bg-card rounded-3xl p-6 shadow-lg">
+        <TodoList todos={todos} toggleComplete={toggleComplete} deleteTodo={deleteTodo} />
         <TodoInput addTodo={addTodo} />
-        
       </div>
-      <div>
-         <footer className="footer">
-          © {new Date().getFullYear()} GDGCoc PUP. All Rights Reserved.
-        </footer>
-      </div>
-  
+
+      <footer className="fixed bottom-0 left-0 right-0 text-center py-4 bg-bg-body border-t border-bg-card-hover text-sm text-google-yellow/30">
+        © {new Date().getFullYear()} GDGCoc PUP. All Rights Reserved.
+      </footer>
     </div>
   )
-
 }
 
 export default App
