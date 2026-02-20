@@ -145,7 +145,7 @@ src/
 
 ---
 
-## 🏃‍♂️ How to Run
+## How to Run
 
 ```bash
 npm install
