@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import sparkyLogo from '../assets/Sparky.png';
-=======
 import sparkyLogo from '../assets/Sparky.png'
->>>>>>> adcdc71 (Updated and Final Version)
 
 function Header({ taskCount, currentDate }) {
   return (
